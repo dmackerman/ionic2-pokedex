@@ -1,11 +1,11 @@
 <ion-navbar *navbar primary>
     <ion-title>Catch Em All <span *ng-if="allPokemon.length">({{ allPokemon.length }})</span></ion-title>
 </ion-navbar>
-<ion-content padding>
+<ion-content>
+    <ion-searchbar [(ng-model)]="searchQuery"></ion-searchbar>
     <ion-list>
-      <ion-item *ng-for="#pokemon of allPokemon" (click)="goToDetail(pokemon)">
-          <h2>{{ pokemon.name | capitalize }}</h2>
-          <p>{{ pokemon.url }}</p>
-      </ion-item>
+        <ion-item *ng-for="#pokemon of getItems()" (click)="goToDetail(pokemon)">
+            <h2>{{ pokemon.name | capitalize }}</h2>
+        </ion-item>
     </ion-list>
 </ion-content>

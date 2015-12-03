@@ -16,8 +16,18 @@ export class PokemonService {
    * @type {Pokemon}
    */
   getPokemon(pokemon: Pokemon):Promise {
+    let pokemon
     return fetch(`http://pokeapi.co/${pokemon.url}`)
         .then(response => response.json())
-        .then(json => new Pokemon(json))
+        .then(json => {
+          pokemon = json;
+          return fetch(`http://pokeapi.co${json.sprites[0].resource_uri}`)
+        })
+        .then(response => response.json())
+        .then(spriteJson => {
+          let _pokemon = new Pokemon(pokemon);
+          _pokemon.image = `http://pokeapi.co${spriteJson.image}`;
+          return _pokemon;
+        })
   }
 }

@@ -3,6 +3,35 @@
       <span *ng-if="pokemon">{{ pokemon.name }}</span>
     </ion-title>
 </ion-navbar>
-<ion-content padding>
-  {{ pokemon | json}}
+<ion-content>
+  <div *ng-if="pokemon">
+    <img class="pokemon-image" src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+
+    <div class="stats">
+      <div>
+        <h3>{{ pokemon.stats.attack }}</h3>
+        Attack
+      </div>
+      <div>
+        <h3>{{ pokemon.stats.defense }}</h3>
+        Defense
+      </div>
+      <div>
+        <h3>{{ pokemon.stats.hp }}</h3>
+        HP
+      </div>
+      <div>
+        <h3>{{ pokemon.stats.speed }}</h3>
+        Speed
+      </div>
+    </div>
+
+    <hr style="margin: 30px 0"/>
+
+    <ion-list>
+      <ion-item *ng-for="#move of pokemon.moves">
+        <strong>{{ move.name }}</strong> <span *ng-if="move.level">, Level {{ move.level }}</span>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

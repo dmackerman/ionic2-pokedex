@@ -2,6 +2,7 @@ import {CORE_DIRECTIVES} from 'angular2/angular2';
 import {Page, NavParams} from 'ionic/ionic';
 import {PokemonService} from '../../services/pokemon-service';
 import Pokemon from '../../models/Pokemon';
+import './detail.scss';
 
 @Page({
   templateUrl: 'app/components/detail/detail.html',
@@ -18,8 +19,8 @@ export class PokemonDetail {
     this.pokemonService = pokemonService;
 
     this.pokemonService.getPokemon(this.params.get('pokemon')).then(response => {
-      console.log(response);
       this.pokemon = response;
+      console.log(this.pokemon);
     });
 
   }

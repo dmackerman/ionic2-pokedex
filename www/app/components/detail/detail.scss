@@ -1,0 +1,18 @@
+.pokemon-image {
+  width: 180px;
+  margin: 0px auto;
+  display: block;
+}
+
+.stats {
+  display: flex;
+  div {
+    flex: 1;
+    text-align: center;
+    color: #777;
+  }
+  h3 {
+    color: #000;
+    margin: 0;
+  }
+}
