@@ -1,0 +1,6 @@
+<ion-navbar *navbar>
+    <ion-title><span *ng-if="pokemon">{{ pokemon.name }}</span></ion-title>
+</ion-navbar>
+<ion-content padding>
+  {{ pokemon | json}}
+</ion-content>
