@@ -11,12 +11,18 @@ export class PokemonService {
         .then(json => json.pokemon.map(pokemonJson => new Pokemon(pokemonJson)))
   }
 
+  getPokemonByUrl(url: String) {
+    return fetch(`http://pokeapi.co/${url}`)
+    .then(response => response.json())
+    .then(json => new Pokemon(json))
+  }
+
   /**
    * Returns a Single pokemon, and is retrieved by it's URL
    * @type {Pokemon}
    */
   getPokemon(pokemon: Pokemon):Promise {
-    let pokemon
+    let pokemon;
     return fetch(`http://pokeapi.co/${pokemon.url}`)
         .then(response => response.json())
         .then(json => {

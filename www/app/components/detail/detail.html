@@ -1,37 +1,59 @@
 <ion-navbar *navbar primary>
     <ion-title>
-      <span *ng-if="pokemon">{{ pokemon.name }}</span>
+        <span *ng-if="pokemon">{{ pokemon.name }}</span>
     </ion-title>
 </ion-navbar>
 <ion-content>
-  <div *ng-if="pokemon">
-    <img class="pokemon-image" src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
-
-    <div class="stats">
-      <div>
-        <h3>{{ pokemon.stats.attack }}</h3>
-        Attack
-      </div>
-      <div>
-        <h3>{{ pokemon.stats.defense }}</h3>
-        Defense
-      </div>
-      <div>
-        <h3>{{ pokemon.stats.hp }}</h3>
-        HP
-      </div>
-      <div>
-        <h3>{{ pokemon.stats.speed }}</h3>
-        Speed
-      </div>
+    <div *ng-if="pokemon">
+        <img class="pokemon-image" src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+        <div class="stats">
+            <div>
+                <h3>{{ pokemon.stats.attack }}</h3> Attack
+            </div>
+            <div>
+                <h3>{{ pokemon.stats.defense }}</h3> Defense
+            </div>
+            <div>
+                <h3>{{ pokemon.stats.hp }}</h3>
+                <icon heart></icon> HP
+            </div>
+            <div>
+                <h3>{{ pokemon.stats.speed }}</h3> Speed
+            </div>
+        </div>
+        <div class="stats">
+            <div>
+                <h3>{{ pokemon.stats.sp_atk }}</h3> Special Attack
+            </div>
+            <div>
+                <h3>{{ pokemon.stats.sp_def }}</h3> Special Defense
+            </div>
+            <div>
+                <h3>{{ pokemon.stats.weight }}</h3> Weight
+            </div>
+        </div>
+        <hr style="margin: 30px 0" />
+        <div padding>
+            <h5><strong>Evolutions</strong></h5>
+            <ion-list>
+                <ion-item *ng-for="#evolution of pokemon.evolutions" (click)="goToEvolution(evolution)">
+                    <span *ng-if="evolution.method === 'level_up'">
+                      Level {{ evolution.level }}, to <strong>{{ evolution.to }}</strong>
+                    </span>
+                    <span *ng-if="evolution.method === 'stone'">
+                      With Stone, to <strong>{{ evolution.to }}</strong>
+                    </span>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div padding>
+            <h5><strong>Moves</strong></h5>
+            <ion-list>
+                <ion-item *ng-for="#move of pokemon.moves">
+                    {{ move.name }}</strong> <span *ng-if="move.level">, Level {{ move.level }}
+                </ion-item>
+            </ion-list>
+        </div>
     </div>
-
-    <hr style="margin: 30px 0"/>
-
-    <ion-list>
-      <ion-item *ng-for="#move of pokemon.moves">
-        <strong>{{ move.name }}</strong> <span *ng-if="move.level">, Level {{ move.level }}</span>
-      </ion-item>
-    </ion-list>
-  </div>
 </ion-content>
+
