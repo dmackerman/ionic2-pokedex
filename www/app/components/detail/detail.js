@@ -1,10 +1,10 @@
 import {CORE_DIRECTIVES} from 'angular2/angular2';
 import {Page, NavParams} from 'ionic/ionic';
-import {PokemonService} from '../../pokemon-service/pokemon-service';
+import {PokemonService} from '../../services/pokemon-service';
 import Pokemon from '../../models/Pokemon';
 
 @Page({
-  templateUrl: 'app/pokemon/detail/detail.html',
+  templateUrl: 'app/components/detail/detail.html',
   providers: [PokemonService],
   directives: [CORE_DIRECTIVES]
 })

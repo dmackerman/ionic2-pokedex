@@ -2,8 +2,8 @@ import 'zone.js';
 import 'reflect-metadata';
 import {bootstrap} from 'angular2/angular2';
 import {App, Platform} from 'ionic/ionic';
-import {Page1} from './page1/page1';
-import {PokemonService} from './pokemon-service/pokemon-service';
+import {List} from './components/list/list';
+import {PokemonService} from './services/pokemon-service';
 import './app.scss';
 
 @App({
@@ -12,7 +12,7 @@ import './app.scss';
 
 export class MyApp {
   constructor(platform: Platform) {
-    this.allPokemon = Page1;
+    this.list = List;
 
     platform.ready().then(() => {
       // Do any necessary cordova or native calls here now that the platform is ready

@@ -1,17 +1,17 @@
 import {CORE_DIRECTIVES} from 'angular2/angular2';
 import {Page, NavController} from 'ionic/ionic';
-import {PokemonService} from '../pokemon-service/pokemon-service';
-import {PokemonDetail} from '../pokemon/detail/detail';
-import {Capitalize} from '../pipes/capitalize'
+import {PokemonService} from '../../services/pokemon-service';
+import {Capitalize} from '../../pipes/capitalize'
+import {PokemonDetail} from '../detail/detail';
 
 @Page({
-  templateUrl: 'app/page1/page1.html',
+  templateUrl: 'app/components/list/list.html',
   providers: [PokemonService],
   directives: [CORE_DIRECTIVES],
   pipes: [Capitalize]
 })
 
-export class Page1 {
+export class List {
 
   constructor(service: PokemonService, nav: NavController) {
     this.service = service;
