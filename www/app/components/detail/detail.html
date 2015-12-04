@@ -33,25 +33,35 @@
             </div>
         </div>
         <hr style="margin: 30px 0" />
-        <div padding>
-            <h5><strong>Evolutions</strong></h5>
+        <div>
             <ion-list>
-                <ion-item *ng-for="#evolution of pokemon.evolutions" (click)="goToEvolution(evolution)">
+              <ion-list-header>Evolutions</ion-list-header>
+                <p padding *ng-if="!pokemon.evolutions.length">No evolutions</p>
+                <a ion-item *ng-for="#evolution of pokemon.evolutions" (click)="goToEvolution(evolution)" href="#">
                     <span *ng-if="evolution.method === 'level_up'">
-                      Level {{ evolution.level }}, to <strong>{{ evolution.to }}</strong>
+                      Level {{ evolution.level }} <icon arrow-right></icon> <strong>{{ evolution.to }}</strong>
                     </span>
                     <span *ng-if="evolution.method === 'stone'">
                       With Stone, to <strong>{{ evolution.to }}</strong>
                     </span>
-                </ion-item>
+                </a>
             </ion-list>
         </div>
-        <div padding>
-            <h5><strong>Moves</strong></h5>
+        <div>
+            <ion-list-header>Abilities</ion-list-header>
             <ion-list>
-                <ion-item *ng-for="#move of pokemon.moves">
-                    {{ move.name }}</strong> <span *ng-if="move.level">, Level {{ move.level }}
-                </ion-item>
+                <a ion-item *ng-for="#ability of pokemon.abilities" href="#">
+                    {{ ability.name | capitalize }}
+                </a>
+            </ion-list>
+        </div>
+        <div>
+            <ion-list-header>Moves</ion-list-header>
+            <ion-list>
+                <a ion-item *ng-for="#move of pokemon.moves" (click)="goToMove(move)" href="#">
+                    <h2>{{ move.name }}</strong></h2>
+                    <p><icon leaf></icon> {{ move.learn_type | capitalize }} <span *ng-if="move.learn_type === 'level_up'"> at {{ move.level }}</span></p>
+                </a>
             </ion-list>
         </div>
     </div>

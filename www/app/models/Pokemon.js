@@ -4,6 +4,7 @@ export default class Pokemon {
     name: String
     uri: String
     moves: Array
+    egg_groups: Array
     abilities: Array
     image: String
     stats: Object
@@ -13,6 +14,7 @@ export default class Pokemon {
         this.name = get(json, 'name', 'Unknown');
         this.url = get(json, 'resource_uri', 'Unknown')
         this.moves = get(json, 'moves', 'Unknown');
+        this.egg_groups = get(json, 'egg_groups', 'None');
         this.abilities = get(json, 'abilities', 'Unknown');
         this.evolutions = get(json, 'evolutions', 'None');
         this.stats = {

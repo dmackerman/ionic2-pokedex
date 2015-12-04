@@ -1,6 +1,7 @@
 import 'isomorphic-fetch';
 import {Injectable} from 'angular2/angular2';
 import Pokemon from '../models/Pokemon';
+import Move from '../models/Move';
 
 @Injectable()
 export class PokemonService {
@@ -35,5 +36,11 @@ export class PokemonService {
           _pokemon.image = `http://pokeapi.co${spriteJson.image}`;
           return _pokemon;
         })
+  }
+
+  getMoveDetails(url: String) {
+    return fetch(`http://pokeapi.co/${url}`)
+      .then(response => response.json())
+      .then(json => new Move(json))
   }
 }

@@ -1,0 +1,24 @@
+<ion-navbar *navbar primary>
+    <ion-title>
+        Move Details
+    </ion-title>
+</ion-navbar>
+<ion-content padding>
+    <h3>{{ move.name }}</h3>
+    <p>{{ move.description }}</p>
+    <hr style="margin: 30px 0;" />
+    <div class="stats">
+        <div>
+            <h3>{{ move.accuracy }}</h3> Accuracy
+        </div>
+        <div>
+            <h3>{{ move.power }}</h3> Power
+        </div>
+        <div>
+            <h3>{{ move.pp }}</h3>
+            PP
+        </div>
+    </div>
+
+</ion-content>
+
