@@ -21,5 +21,9 @@
     "whatwg-fetch": "^0.10.1"
   },
   "name": "dackapp",
-  "description": "dackapp: An Ionic project"
+  "description": "dackapp: An Ionic project",
+  "cordovaPlugins": [],
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }

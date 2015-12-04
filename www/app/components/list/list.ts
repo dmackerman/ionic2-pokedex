@@ -3,11 +3,14 @@ import {Page, NavController} from 'ionic/ionic';
 import {PokemonService} from '../../services/pokemon-service';
 import {Capitalize} from '../../pipes/capitalize'
 import {PokemonDetail} from '../detail/detail';
+import Loader from '../loader/loader';
+
+import { sortBy } from 'lodash';
 
 @Page({
   templateUrl: 'app/components/list/list.html',
   providers: [PokemonService],
-  directives: [CORE_DIRECTIVES],
+  directives: [CORE_DIRECTIVES, Loader],
   pipes: [Capitalize]
 })
 
@@ -37,7 +40,7 @@ export class List {
     getItems() {
         var q = this.searchQuery;
         if (q.trim() == '') {
-            return this.allPokemon;
+            return sortBy(this.allPokemon, 'name');
         }
         return this.allPokemon.filter((v) => {
             if (v.name.toLowerCase().indexOf(q.toLowerCase()) >= 0) {

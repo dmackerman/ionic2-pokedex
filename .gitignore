@@ -19,6 +19,7 @@ node_modules/
 tmp/
 temp/
 www/build/
+platforms/
 $RECYCLE.BIN/
 
 .DS_Store

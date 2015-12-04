@@ -4,6 +4,7 @@
     </ion-title>
 </ion-navbar>
 <ion-content>
+  <loader *ng-if="!pokemon"></loader>
     <div *ng-if="pokemon">
         <img class="pokemon-image" src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
         <div class="stats">
@@ -60,7 +61,7 @@
             <ion-list>
                 <a ion-item *ng-for="#move of pokemon.moves" (click)="goToMove(move)" href="#">
                     <h2>{{ move.name }}</strong></h2>
-                    <p><icon leaf></icon> {{ move.learn_type | capitalize }} <span *ng-if="move.learn_type === 'level_up'"> at {{ move.level }}</span></p>
+                    <p>{{ move.learn_type | capitalize }} <span *ng-if="move.learn_type === 'level_up'"> at {{ move.level }}</span></p>
                 </a>
             </ion-list>
         </div>

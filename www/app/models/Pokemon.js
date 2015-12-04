@@ -1,4 +1,4 @@
-import {get} from 'lodash'
+import { get, sortBy } from 'lodash'
 
 export default class Pokemon {
     name: String
@@ -13,10 +13,10 @@ export default class Pokemon {
     constructor(json: Object) {
         this.name = get(json, 'name', 'Unknown');
         this.url = get(json, 'resource_uri', 'Unknown')
-        this.moves = get(json, 'moves', 'Unknown');
+        this.moves = sortBy(get(json, 'moves', 'Unknown'), 'name');
         this.egg_groups = get(json, 'egg_groups', 'None');
         this.abilities = get(json, 'abilities', 'Unknown');
-        this.evolutions = get(json, 'evolutions', 'None');
+        this.evolutions = sortBy(get(json, 'evolutions', 'None'), 'name');
         this.stats = {
             attack: get(json, 'attack', 'Unknown'),
             defense: get(json, 'defense', 'Unknown'),

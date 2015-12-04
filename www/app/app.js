@@ -1,6 +1,5 @@
 import 'zone.js';
 import 'reflect-metadata';
-import {bootstrap} from 'angular2/angular2';
 import {App, Platform} from 'ionic/ionic';
 import {List} from './components/list/list';
 import {PokemonService} from './services/pokemon-service';

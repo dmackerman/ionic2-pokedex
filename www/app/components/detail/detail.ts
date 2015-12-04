@@ -4,12 +4,13 @@ import {PokemonService} from '../../services/pokemon-service';
 import {Capitalize} from '../../pipes/capitalize'
 import Pokemon from '../../models/Pokemon';
 import MoveDetail from '../move/move';
+import Loader from '../loader/loader';
 import './detail.scss';
 
 @Page({
   templateUrl: 'app/components/detail/detail.html',
   providers: [PokemonService],
-  directives: [CORE_DIRECTIVES],
+  directives: [CORE_DIRECTIVES, Loader],
   pipes: [Capitalize]
 })
 
@@ -22,10 +23,12 @@ export class PokemonDetail {
     this.nav = nav;
     this.viewCtrl = viewCtrl;
     this.pokemonService = pokemonService;
+  }
 
+  onPageDidEnter() {
     this.pokemonService.getPokemon(this.params.get('pokemon')).then(response => {
       this.pokemon = response;
-      console.log(this.pokemon);
+      console.info(this.pokemon);
     });
   }
 
@@ -38,11 +41,9 @@ export class PokemonDetail {
   }
 
   goToMove(move) {
-    this.pokemonService.getMoveDetails(move.resource_uri).then(response => {
-      this.nav.push(MoveDetail, {
-          pokemon: this.pokemon,
-          move: response
-      });
+    this.nav.push(MoveDetail, {
+        pokemon: this.pokemon,
+        move: move
     });
   }
 

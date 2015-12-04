@@ -5,10 +5,14 @@
     </ion-title>
 </ion-navbar>
 <ion-content>
+  <loader *ng-if="!allPokemon.length"></loader>
+  <div *ng-if="allPokemon.length">
     <ion-searchbar [(ng-model)]="searchQuery"></ion-searchbar>
     <ion-list>
         <a ion-item *ng-for="#pokemon of getItems()" (click)="goToDetail(pokemon)" href="#">
             <h2>{{ pokemon.name | capitalize }}</h2>
         </a>
     </ion-list>
+  </div>
+
 </ion-content>
