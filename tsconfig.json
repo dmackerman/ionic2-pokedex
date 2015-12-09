@@ -4,6 +4,7 @@
     "allowNonTsExtensions": true,
     "module": "commonjs",
     "sourceMap": true,
+    "experimentalAsyncFunctions": true,
     "experimentalDecorators": true,
     "isolatedModules": true,
     "noEmitOnError": false,

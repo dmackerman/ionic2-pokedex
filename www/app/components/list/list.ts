@@ -3,41 +3,43 @@ import {Page, NavController} from 'ionic/ionic';
 import {PokemonService} from '../../services/pokemon-service';
 import {Capitalize} from '../../pipes/capitalize'
 import {PokemonDetail} from '../detail/detail';
+import Pokemon from '../../models/pokemon';
 import Loader from '../loader/loader';
 
 import { sortBy } from 'lodash';
 
 @Page({
-  templateUrl: 'app/components/list/list.html',
-  providers: [PokemonService],
-  directives: [CORE_DIRECTIVES, Loader],
-  pipes: [Capitalize]
+    templateUrl: 'app/components/list/list.html',
+    providers: [PokemonService],
+    directives: [CORE_DIRECTIVES, Loader],
+    pipes: [Capitalize]
 })
 
 export class List {
 
-    constructor(service: PokemonService, nav: NavController) {
-        this.service = service;
-        this.nav = nav;
-        this.allPokemon = [];
-        this.searchQuery = '';
-        this.init();
-    }
+    private allPokemon: Array<Pokemon> = [];
+    private searchQuery = '';
 
-    init() {
+    constructor(
+        public service: PokemonService,
+        public nav: NavController
+    )
+    { }
+
+    onPageDidEnter(): void {
         this.service.getAllPokemon().then(response => {
             this.allPokemon = response;
             console.log(this.allPokemon);
         });
     }
 
-    goToDetail(pokemon) {
+    goToDetail(pokemon): void {
         this.nav.push(PokemonDetail, {
             pokemon: pokemon
         });
     }
 
-    getItems() {
+    getItems(): Array<Pokemon> {
         var q = this.searchQuery;
         if (q.trim() == '') {
             return sortBy(this.allPokemon, 'name');

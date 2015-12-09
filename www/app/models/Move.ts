@@ -1,9 +1,9 @@
-import {get} from 'lodash'
+import { get } from 'lodash'
 
 export default class Move {
     id: Number
-    accuracy: Number,
-    description: String,
+    accuracy: Number
+    description: String
     name: String
     power: Number
     pp: Number

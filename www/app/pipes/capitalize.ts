@@ -2,10 +2,10 @@ import { capitalize } from 'lodash';
 import { Pipe } from 'angular2/angular2';
 
 @Pipe({
-  name: 'capitalize'
+    name: 'capitalize'
 })
 export class Capitalize {
-  transform(value:string) : any {
-    return capitalize(value);
-  }
+    transform(value: string): string {
+        return capitalize(value);
+    }
 }

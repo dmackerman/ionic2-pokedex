@@ -1,10 +1,10 @@
 <ion-navbar *navbar primary>
     <ion-title>
-        <span *ng-if="pokemon">{{ pokemon.name }}</span>
+        <strong *ng-if="pokemon">{{ pokemon.name }}</strong>
     </ion-title>
 </ion-navbar>
 <ion-content>
-  <loader *ng-if="!pokemon"></loader>
+  <loader text="Loading Pokemon..." *ng-if="!pokemon"></loader>
     <div *ng-if="pokemon">
         <img class="pokemon-image" src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
         <div class="stats">

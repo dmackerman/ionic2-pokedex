@@ -14,15 +14,14 @@ import Loader from '../loader/loader';
 })
 
 export default class MoveDetail {
+  private move: Move
 
-  private move:Move;
-
-  constructor(pokemonService: PokemonService, params: NavParams, nav: NavController, viewCtrl: ViewController) {
-    this.params = params;
-    this.nav = nav;
-    this.viewCtrl = viewCtrl;
-    this.pokemonService = pokemonService;
-  }
+  constructor(
+    public pokemonService: PokemonService,
+    public params: NavParams,
+    public nav: NavController,
+    public viewCtrl: ViewController
+  ) {}
 
   onPageWillEnter() {
     this.viewCtrl.setBackButtonText(this.params.get('pokemon').name);
@@ -31,9 +30,7 @@ export default class MoveDetail {
   onPageDidEnter() {
     let move = this.params.get('move');
     this.pokemonService.getMoveDetails(move.resource_uri).then(response => {
-        this.move = response;
+      this.move = response;
     });
   }
-
-
 }

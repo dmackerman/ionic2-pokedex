@@ -8,44 +8,43 @@ import Loader from '../loader/loader';
 import './detail.scss';
 
 @Page({
-  templateUrl: 'app/components/detail/detail.html',
-  providers: [PokemonService],
-  directives: [CORE_DIRECTIVES, Loader],
-  pipes: [Capitalize]
+    templateUrl: 'app/components/detail/detail.html',
+    providers: [PokemonService],
+    directives: [CORE_DIRECTIVES, Loader],
+    pipes: [Capitalize]
 })
 
 export class PokemonDetail {
 
-  private pokemon:Pokemon;
+    // the pokemon we're displaying
+    private pokemon: Pokemon;
 
-  constructor(pokemonService: PokemonService, params: NavParams, nav: NavController, viewCtrl: ViewController) {
-    this.params = params;
-    this.nav = nav;
-    this.viewCtrl = viewCtrl;
-    this.pokemonService = pokemonService;
-  }
+    constructor(
+        public pokemonService: PokemonService,
+        public params: NavParams,
+        public nav: NavController,
+        public viewCtrl: ViewController
+    ) { }
 
-  onPageDidEnter() {
-    this.pokemonService.getPokemon(this.params.get('pokemon')).then(response => {
-      this.pokemon = response;
-      console.info(this.pokemon);
-    });
-  }
+    onPageDidEnter(): void {
+        this.pokemonService.getPokemon(this.params.get('pokemon')).then(response => {
+            this.pokemon = response;
+        });
+    }
 
-  goToEvolution(evolution) {
-    this.pokemonService.getPokemonByUrl(evolution.resource_uri).then(response => {
-      this.nav.push(PokemonDetail, {
-          pokemon: response
-      });
-    });
-  }
+    goToEvolution(evolution): void {
+        this.pokemonService.getPokemonByUrl(evolution.resource_uri).then(response => {
+            this.nav.push(PokemonDetail, {
+                pokemon: response
+            });
+        });
+    }
 
-  goToMove(move) {
-    this.nav.push(MoveDetail, {
-        pokemon: this.pokemon,
-        move: move
-    });
-  }
-
+    goToMove(move): void {
+        this.nav.push(MoveDetail, {
+            pokemon: this.pokemon,
+            move: move
+        });
+    }
 
 }

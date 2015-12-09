@@ -1,14 +1,14 @@
-import { get, sortBy } from 'lodash'
+import { get, sortBy } from 'lodash';
 
 export default class Pokemon {
     name: String
     uri: String
-    moves: Array
-    egg_groups: Array
-    abilities: Array
+    moves: Array<Object>
+    egg_groups: Array<Object>
+    abilities: Array<Object>
     image: String
     stats: Object
-    evolutions: Array
+    evolutions: Array<Object>
 
     constructor(json: Object) {
         this.name = get(json, 'name', 'Unknown');
