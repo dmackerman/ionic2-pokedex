@@ -1,9 +1,8 @@
 import 'zone.js';
 import 'reflect-metadata';
-import {App, Platform} from 'ionic/ionic';
+import {App, Platform} from 'ionic-framework/ionic';
 import {List} from './components/list/list';
 import {PokemonService} from './services/pokemon-service';
-import './app.scss';
 
 @App({
   templateUrl: 'app/app.html'

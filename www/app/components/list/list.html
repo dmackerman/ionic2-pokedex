@@ -1,18 +1,17 @@
 <ion-navbar *navbar primary>
     <ion-title>
       <img src="app/assets/pokeball.png" alt="" style="width: 18px;height: 18px;vertical-align: middle;" />
-        <strong>Catch Em All <span *ng-if="allPokemon.length">({{ allPokemon.length }})</span></strong>
+        <strong>Catch Em All <span *ngIf="allPokemon.length">({{ allPokemon.length }})</span></strong>
     </ion-title>
 </ion-navbar>
 <ion-content>
-  <loader text="Reading Pokedex..." *ng-if="!allPokemon.length"></loader>
-  <div *ng-if="allPokemon.length">
-    <ion-searchbar [(ng-model)]="searchQuery"></ion-searchbar>
+  <loader text="Reading Pokedex..." *ngIf="!allPokemon.length"></loader>
+  <div *ngIf="allPokemon.length">
+    <ion-searchbar [(ngModel)]="searchQuery"></ion-searchbar>
     <ion-list>
-        <a ion-item *ng-for="#pokemon of getItems()" (click)="goToDetail(pokemon)" href="#">
+        <a ion-item *ngFor="#pokemon of getItems()" (click)="goToDetail(pokemon)" href="#">
             <h2>{{ pokemon.name | capitalize }}</h2>
         </a>
     </ion-list>
   </div>
-
 </ion-content>

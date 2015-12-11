@@ -1,5 +1,4 @@
-import {CORE_DIRECTIVES} from 'angular2/angular2';
-import {Page, NavController} from 'ionic/ionic';
+import {Page, NavController} from 'ionic-framework/ionic';
 import {PokemonService} from '../../services/pokemon-service';
 import {Capitalize} from '../../pipes/capitalize'
 import {PokemonDetail} from '../detail/detail';
@@ -11,7 +10,7 @@ import { sortBy } from 'lodash';
 @Page({
     templateUrl: 'app/components/list/list.html',
     providers: [PokemonService],
-    directives: [CORE_DIRECTIVES, Loader],
+    directives: [Loader],
     pipes: [Capitalize]
 })
 

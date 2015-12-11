@@ -1,16 +1,14 @@
-import {CORE_DIRECTIVES} from 'angular2/angular2';
-import {Page, NavParams, NavController, ViewController} from 'ionic/ionic';
+import {Page, NavParams, NavController, ViewController} from 'ionic-framework/ionic';
 import {PokemonService} from '../../services/pokemon-service';
 import {Capitalize} from '../../pipes/capitalize'
 import Pokemon from '../../models/Pokemon';
 import MoveDetail from '../move/move';
 import Loader from '../loader/loader';
-import './detail.scss';
 
 @Page({
     templateUrl: 'app/components/detail/detail.html',
     providers: [PokemonService],
-    directives: [CORE_DIRECTIVES, Loader],
+    directives: [Loader],
     pipes: [Capitalize]
 })
 

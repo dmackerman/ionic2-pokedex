@@ -1,15 +1,31 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "allowNonTsExtensions": true,
     "module": "commonjs",
-    "sourceMap": true,
-    "experimentalAsyncFunctions": true,
-    "experimentalDecorators": true,
-    "isolatedModules": true,
     "noEmitOnError": false,
     "rootDir": ".",
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
-  "compileOnSave": false
+  "files": [
+    "www/app/app.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false,
+  "formatCodeOptions": {
+    "indentSize": 4,
+    "tabSize": 4,
+    "newLineCharacter": "\r\n",
+    "convertTabsToSpaces": true,
+    "insertSpaceAfterCommaDelimiter": true,
+    "insertSpaceAfterSemicolonInForStatements": true,
+    "insertSpaceBeforeAndAfterBinaryOperators": true,
+    "insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "placeOpenBraceOnNewLineForFunctions": false,
+    "placeOpenBraceOnNewLineForControlBlocks": false
+  }
 }

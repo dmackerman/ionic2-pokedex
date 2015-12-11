@@ -1,11 +1,11 @@
 <ion-navbar *navbar primary>
     <ion-title>
-        <strong *ng-if="pokemon">{{ pokemon.name }}</strong>
+        <strong *ngIf="pokemon">{{ pokemon.name }}</strong>
     </ion-title>
 </ion-navbar>
 <ion-content>
-  <loader text="Loading Pokemon..." *ng-if="!pokemon"></loader>
-    <div *ng-if="pokemon">
+  <loader text="Loading Pokemon..." *ngIf="!pokemon"></loader>
+    <div *ngIf="pokemon">
         <img class="pokemon-image" src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
         <div class="stats">
             <div>
@@ -37,12 +37,12 @@
         <div>
             <ion-list>
               <ion-list-header>Evolutions</ion-list-header>
-                <p padding *ng-if="!pokemon.evolutions.length">No evolutions</p>
-                <a ion-item *ng-for="#evolution of pokemon.evolutions" (click)="goToEvolution(evolution)" href="#">
-                    <span *ng-if="evolution.method === 'level_up'">
+                <p padding *ngIf="!pokemon.evolutions.length">No evolutions</p>
+                <a ion-item *ngFor="#evolution of pokemon.evolutions" (click)="goToEvolution(evolution)" href="#">
+                    <span *ngIf="evolution.method === 'level_up'">
                       Level {{ evolution.level }} <icon arrow-right></icon> <strong>{{ evolution.to }}</strong>
                     </span>
-                    <span *ng-if="evolution.method === 'stone'">
+                    <span *ngIf="evolution.method === 'stone'">
                       With Stone, to <strong>{{ evolution.to }}</strong>
                     </span>
                 </a>
@@ -51,7 +51,7 @@
         <div>
             <ion-list-header>Abilities</ion-list-header>
             <ion-list>
-                <a ion-item *ng-for="#ability of pokemon.abilities" href="#">
+                <a ion-item *ngFor="#ability of pokemon.abilities" href="#">
                     {{ ability.name | capitalize }}
                 </a>
             </ion-list>
@@ -59,9 +59,9 @@
         <div>
             <ion-list-header>Moves</ion-list-header>
             <ion-list>
-                <a ion-item *ng-for="#move of pokemon.moves" (click)="goToMove(move)" href="#">
-                    <h2>{{ move.name }}</strong></h2>
-                    <p>{{ move.learn_type | capitalize }} <span *ng-if="move.learn_type === 'level_up'"> at {{ move.level }}</span></p>
+                <a ion-item *ngFor="#move of pokemon.moves" (click)="goToMove(move)" href="#">
+                    <h2>{{ move.name }}</h2>
+                    <p>{{ move.learn_type | capitalize }} <span *ngIf="move.learn_type === 'level_up'"> at {{ move.level }}</span></p>
                 </a>
             </ion-list>
         </div>

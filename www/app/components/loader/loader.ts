@@ -1,5 +1,4 @@
-import {Component, Input} from 'angular2/angular2';
-import './loader.scss';
+import {Component, Input} from 'angular2/core';
 
 @Component({
     selector: 'loader',
