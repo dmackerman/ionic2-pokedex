@@ -1,4 +1,4 @@
-import {Page, NavParams, NavController, ViewController} from 'ionic-framework/ionic';
+import {Page, NavParams, NavController, ViewController} from 'ionic-angular';
 import {PokemonService} from '../../services/pokemon-service';
 import {Capitalize} from '../../pipes/capitalize'
 import {AsyncPipe} from 'angular2/common';

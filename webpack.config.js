@@ -6,7 +6,6 @@ module.exports = {
   entry: [
     'es6-shim/es6-shim.min',
     'reflect-metadata',
-    'web-animations.min',
     'zone.js',
     path.join(__dirname, paths.wwwDir, paths.appDir, paths.appSrcModule)
   ],
@@ -41,7 +40,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'web-animations.min': 'ionic-framework/js/web-animations.min',
+      'angular2': path.resolve('node_modules/angular2')
     },
     extensions: ["", ".js", ".ts"]
   }

@@ -1,5 +1,5 @@
 import 'isomorphic-fetch';
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 import Pokemon from '../models/Pokemon';
 import Move from '../models/Move';
 

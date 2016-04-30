@@ -1,6 +1,6 @@
 import 'zone.js';
 import 'reflect-metadata';
-import {App, Platform} from 'ionic-framework/ionic';
+import {App, Platform} from 'ionic-angular';
 import {List} from './components/list/list';
 import {PokemonService} from './services/pokemon-service';
 

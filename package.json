@@ -1,22 +1,54 @@
 {
   "name": "dackapp",
   "description": "dackapp: An Ionic project",
-  "devDependencies": {
-    "awesome-typescript-loader": "^0.15.9",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "^2.1.0",
-    "gulp-watch": "^4.3.5",
-    "typescript": "^1.7.3"
-  },
   "dependencies": {
-    "ionic-framework": "2.0.0-alpha.42",
-    "isomorphic-fetch": "^2.2.0",
-    "lodash": "^3.10.1"
+    "angular2": "2.0.0-beta.6",
+    "angular2-firebase": "^0.5.2",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "0.33.13",
+    "firebase": "^2.4.1",
+    "ionic-angular": "2.0.0-beta.3",
+    "ionic-native": "^1.1.0",
+    "ionicons": "3.0.0-alpha.3",
+    "isomorphic-fetch": "^2.2.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.14"
   },
   "scripts": {
-    "tsc": "tsc -p tests/src -w",
-    "start": "live-server --open=tests"
-  }
+    "webpack": "webpack",
+    "watch": "gulp watch",
+    "server": "webpack-dev-server --content-base www/ --colors --hot --inline --display-error-details --port 3000",
+    "start": "npm run server",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "0.15.10",
+    "del": "2.2.0",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "2.2.0",
+    "gulp-watch": "4.3.5",
+    "node-sass": "^3.4.2",
+    "retyped-cordova-plugin-email-composer-tsd-ambient": "0.0.0-0",
+    "strip-sourcemap-loader": "0.0.1",
+    "typescript": "1.7.5",
+    "webpack": "1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard",
+    "cordova-sqlite-storage"
+  ],
+  "cordovaPlatforms": [
+    {
+      "platform": "android",
+      "locator": "windows"
+    }
+  ]
 }
